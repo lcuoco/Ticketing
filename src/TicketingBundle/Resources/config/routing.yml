@@ -1,0 +1,17 @@
+ticketing_homepage:
+    path:     /Ticketing
+    defaults: { _controller: TicketingBundle:Ticketing:index }
+
+ticketing_user:
+    path:     /Ticketing/user
+    defaults: { _controller: TicketingBundle:Ticketing:user }
+
+
+ticketing_tech:
+    path:     /Ticketing/tech
+    defaults: { _controller: TicketingBundle:Ticketing:tech }
+
+ticketing_admin:
+    path:     /Ticketing/admin
+    defaults: { _controller: TicketingBundle:Ticketing:admin }
+

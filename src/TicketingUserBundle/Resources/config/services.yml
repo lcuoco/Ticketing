@@ -1,0 +1,4 @@
+services:
+#    ticketing_user.example:
+#        class: TicketingUserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
