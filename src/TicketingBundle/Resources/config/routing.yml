@@ -15,3 +15,23 @@ ticketing_admin:
     path:     /Ticketing/admin
     defaults: { _controller: TicketingBundle:Ticketing:admin }
 
+checking_role:
+    path:     /Ticketing
+    defaults: { _controller: TicketingBundle:Ticketing:index }
+
+ticketing_add:
+    path:     /Ticketing/user/add
+    defaults: { _controller: TicketingBundle:Ticketing:add }
+
+demande_view:
+
+    path:      /Ticketing/user/{page}
+
+    defaults:
+
+        _controller: TicketingBundle:Ticketing:view
+
+
+    requirements:
+
+        id: \d+

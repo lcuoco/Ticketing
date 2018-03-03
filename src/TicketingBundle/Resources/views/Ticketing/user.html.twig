@@ -1,2 +1,37 @@
-User
-<body></body>
+{% extends "TicketingBundle:Ticketing:layout.html.twig" %}
+{% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    <li><a href="{{ path('ticketing_add') }}"><span class="glyphicon glyphicon-plus"></span> Faire une demande</a></li></ul>{% endblock %}
+{% block body %}
+    <h2> Bonjour {{ app.user.username }}</h2>
+    <ul>
+        <h3>Demandes en cours</h3>
+
+            <div class="container">
+
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Objet</th>
+                        <th>Description</th>
+                        <th>Etat</th>
+                    </tr>
+                    {% for demande in listDemandes %}
+                    </thead>
+                    <tbody>
+                    <a>
+                        <td>{{ demande.objet }}</td>
+                        <td>{{ demande.description }}</td>
+                        <td>{{ demande.etat }}</td>
+                        <td> <a href="{{ path('demande_view', {'page': demande.id}) }}"> Voir la Demande
+
+                            </a></td>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+
+    </ul>
+{% endblock %}
+

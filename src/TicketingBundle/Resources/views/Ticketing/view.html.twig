@@ -1,0 +1,30 @@
+{% extends "TicketingBundle:Ticketing:layout.html.twig" %}
+{% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>{% endblock %}
+{% block body %}
+    {% for demandes in demande %}
+        <h3> Detail de la demande </h3><br>
+        <h4>Objet :</h4> {{ demandes.objet }}
+        <h4>Description :</h4> {{ demandes.description }}
+        <h4>Etat : </h4>
+    {% if demandes.etat  == 'soumis'%}
+    <div class="progress">
+        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="30"
+             aria-valuemin="0" aria-valuemax="100" style="width:30%">
+            30% Demande Soumise
+            {% endif %}
+            {% if demandes.etat  == 'attribue'%}
+            <div class="progress">
+                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                     aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                    60% Demande Attribué à un technicien
+                    {% endif %}
+                    {% if demandes.etat  == 'resolu'%}
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                             aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                            100% Demande Résolu
+                            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

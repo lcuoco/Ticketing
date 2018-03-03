@@ -1,6 +1,4 @@
-ticketing_user:
-    resource: "@TicketingUserBundle/Resources/config/routing.yml"
-    prefix:   /
+
 
 ticketing:
     resource: "@TicketingBundle/Resources/config/routing.yml"
@@ -16,7 +14,7 @@ login:
 
     defaults:
 
-        _controller: OCUserBundle:Security:login
+        _controller: TicketingUserBundle:Security:login
 
 
 login_check:
