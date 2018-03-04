@@ -3,10 +3,14 @@
 {% block body %}
     {% for tickets in ticket %}
         <h3> Detail de la demande </h3><br>
+        <div class = "row">
+            <div class = "col-lg-6">
         <h4>Objet :</h4> {{ tickets.demande.objet }}
         <h4>Description :</h4> {{ tickets.demande.description }}
 
-        <h4>Date : </h4>{{  tickets.demande.date|date('Y-m-d') }}</h4>
+
+
+            <h4>Date : </h4>{{  tickets.demande.date|date('Y-m-d') }}</h4>
 
 
     <h4>Etat : </h4>
@@ -30,16 +34,62 @@
                             {% endif %}
 
 
-
-
         </div>
     </div>
+                    <br><br> <a href="{{ path('ticketing_user') }}"> <button class =" btn btn-danger">Retour</button></a>
+            </div>
+
+                    <div class = " col-lg-6">
+
                     {% if tickets.compterendu %}
-                        <h3 style ='color:green;'> Probleme Resolu</h3>
-                        <h2>Compte Rendu : </h2>
-                        {{ tickets.compterendu }}
+                        <div class="well">
+                        <div class = 'text-center'><h2 style ='color:green;'> Probleme Resolu</h2>
+                         <h3>Compte Rendu : </h3>
+                            <div style = "font-size:20px;">{{ tickets.compterendu }}</div>
                     {% endif %}
 
-    {% endfor %}
-                    <br><br> <a href="{{ path('ticketing_user') }}"> <button class =" btn btn-danger">Retour</button>
-{% endblock %}
+    {% endfor %}{% for demande in Listdem %}
+                            {% if demande.etat == 'soumis' %}
+                            <h3> Detail de la demande </h3><br>
+                            <div class = "row">
+                                <div class = "col-lg-6">
+                                    <h4>Objet :</h4> {{ demande.objet }}
+                                    <h4>Description :</h4> {{ demande.description }}
+
+
+
+                                    <h4>Date : </h4>{{  demande.date|date('Y-m-d') }}</h4>
+
+
+                                    <h4>Etat : </h4>
+                                    {% if demande.etat  == 'soumis'%}
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="30"
+                                             aria-valuemin="0" aria-valuemax="100" style="width:30%">
+                                            30% Demande Soumise
+                                            {% endif %}
+                                            {% if demande.etat  == 'attribue'%}
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                                     aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                                    60% Demande Attribué à un technicien
+                                                    {% endif %}
+                                                    {% if demande.etat  == 'resolue'%}
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                                             aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                            100% Demande Résolu
+                                                            {% endif %}
+
+
+                                                        </div>
+                                                    </div>
+                                                    <br><br> <a href="{{ path('ticketing_user') }}"> <button class =" btn btn-danger">Retour</button></a>
+                                                </div>
+
+                                                <div class = " col-lg-6">
+                                                        {% endif %}
+
+                                                            {% endfor %}</div></div>
+
+                        {% endblock %}

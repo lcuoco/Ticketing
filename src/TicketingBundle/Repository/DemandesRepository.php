@@ -38,6 +38,34 @@ class DemandesRepository extends \Doctrine\ORM\EntityRepository
             ;
 
     }
+    public function myFindOneres($id)
+
+    {
+
+        $qb = $this->createQueryBuilder('d');
+
+
+        $qb
+            ->where("d.etat = 'resolue'")
+
+            ->andWhere('d.utilisateur = :id')
+
+
+
+            ->setParameter('id', $id)
+
+        ;
+
+
+        return $qb
+
+            ->getQuery()
+
+            ->getResult()
+
+            ;
+
+    }
 
     public function myFindOnedem($id)
 

@@ -20,6 +20,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Response;
 use TicketingUserBundle\TicketingUserBundle;
+use Doctrine\ORM\EntityRepository;
 
 class TicketingController extends Controller
 {
@@ -59,7 +60,8 @@ class TicketingController extends Controller
 
 
         $listDemandes = $repository->myFindOne($this->getUser());
-        return $this->render('TicketingBundle:Ticketing:user.html.twig', array('listDemandes' => $listDemandes));
+        $listDemandesResolues = $repository->myFindOneres($this->getUser());
+        return $this->render('TicketingBundle:Ticketing:user.html.twig', array('listDemandes' => $listDemandes, 'listDemandesResolues' => $listDemandesResolues));
     }
 
     public function techAction()
@@ -192,16 +194,28 @@ class TicketingController extends Controller
 
         // Ici, on récupérera l'annonce correspondante à l'id $id
 
+
+
         $repository = $this
             ->getDoctrine()
             ->getManager()
             ->getRepository('TicketingBundle:Tickets');
 
-
         $ticket = $repository->myFindOneticka($page);
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('TicketingBundle:Demandes');
+
+        $Listdem = $repository->myFindOnedem($page);
+
+
+
+
         return $this->render('TicketingBundle:Ticketing:view.html.twig', array(
 
-            'page' => $page, 'ticket' => $ticket
+            'page' => $page, 'ticket' => $ticket, 'Listdem' => $Listdem
 
         ));
 
@@ -244,7 +258,11 @@ class TicketingController extends Controller
             ->add('delai', integerType::class)
             ->add('urgence', CheckboxType::class)
             ->add('utilisateur', EntityType::class, array(
-                'class' => Utilisateurs::class, 'choice_label' => 'username',))
+                'class' => Utilisateurs::class,'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->where("u.roles != 'a:1:{i:0;s:9:\"ROLE_USER\";}'");
+
+                }, 'choice_label' => 'username',))
             ->add('Envoyer', SubmitType::class);
 
         // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
