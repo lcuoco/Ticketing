@@ -71,7 +71,14 @@ class TicketingController extends Controller
             throw new AccessDeniedException('Accès limité aux Techniciens.');
 
         }
-        return $this->render('TicketingBundle:Ticketing:tech.html.twig');
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('TicketingBundle:Tickets');
+
+
+        $listTickets = $repository->myFindOnea($this->getUser());
+        return $this->render('TicketingBundle:Ticketing:tech.html.twig', array('listTickets' => $listTickets));
     }
 
     public function adminAction()
@@ -188,13 +195,13 @@ class TicketingController extends Controller
         $repository = $this
             ->getDoctrine()
             ->getManager()
-            ->getRepository('TicketingBundle:Demandes');
+            ->getRepository('TicketingBundle:Tickets');
 
 
-        $demande = $repository->myFindOnedem($page);
+        $ticket = $repository->myFindOneticka($page);
         return $this->render('TicketingBundle:Ticketing:view.html.twig', array(
 
-            'page' => $page, 'demande' => $demande
+            'page' => $page, 'ticket' => $ticket
 
         ));
 
@@ -302,6 +309,78 @@ class TicketingController extends Controller
         return $this->render('TicketingBundle:Ticketing:attribute.html.twig', array(
 
             'formticket' => $formticket->createView()
+
+        ));
+    }
+
+    public function resolveAction(Request $request, $page)
+
+    {
+
+        // Ici, on récupérera l'annonce correspondante à l'id $id
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('TicketingBundle:Tickets');
+
+        $listTickets = $repository->myFindOnetick($page);
+
+
+        // On crée le FormBuilder grâce au service form factory
+        foreach ($listTickets as $ticket) {
+            $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $ticket);
+
+
+            // On ajoute les champs de l'entité que l'on veut à notre formulaire
+
+            $formBuilder
+                ->add('compterendu', TextareaType::class)
+                ->add('Envoyer', SubmitType::class);
+            $formticketcpt = $formBuilder->getForm();
+
+            // Si la requête est en POST
+
+            if ($request->isMethod('POST')) {
+
+                // On fait le lien Requête <-> Formulaire
+
+                // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
+
+                $formticketcpt->handleRequest($request);
+
+
+                // On vérifie que les valeurs entrées sont correctes
+
+                // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+
+                if ($formticketcpt->isValid()) {
+
+                    // On enregistre notre objet $advert dans la base de données, par exemple
+                    $numdem = $ticket->getDemande();
+                    $numdem->setEtat('resolue');
+
+                    $em = $this->getDoctrine()->getManager();
+
+                    $em->persist($ticket);
+
+                    $em->flush();
+
+
+                    $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+
+                    // On redirige vers la page de visualisation de l'annonce nouvellement créée
+                    return $this->redirectToRoute('ticketing_tech');
+                }
+
+            }
+
+        }
+
+        return $this->render('TicketingBundle:Ticketing:resolve.html.twig', array(
+
+             'listTickets' => $listTickets, 'formticketcpt' => $formticketcpt->createView()
 
         ));
     }

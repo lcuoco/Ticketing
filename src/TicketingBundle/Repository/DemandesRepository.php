@@ -18,9 +18,9 @@ class DemandesRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb
-            ->where("d.etat = 'soumis'")
+            ->where("d.etat != 'resolue'")
 
-            ->where('d.utilisateur = :id')
+            ->andWhere('d.utilisateur = :id')
 
 
 

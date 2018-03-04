@@ -1,5 +1,39 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
 {% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>{% endblock %}
 {% block body %}
-    PAGE tech
+    <h2> Bonjour {{ app.user.username }}</h2>
+    <ul>
+        <h3>Demandes en cours</h3>
+
+        <div class="container">
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Objet</th>
+                    <th>Description</th>
+                    <th>Etat</th>
+                    <th>Fait par</th>
+                    <th>Date</th>
+                </tr>
+                {% for ticket in listTickets %}
+                </thead>
+                <tbody>
+                <a>
+                    <td>{{ ticket.demande.objet }}</td>
+                    <td>{{ ticket.demande.description }}</td>
+                    <td>{{ ticket.demande.etat }}</td>
+                    <td>{{ ticket.demande.utilisateur.username }} </td>
+                    <td>{{  ticket.demande.date|date('Y-m-d') }}</td>
+                    <td> <a href="{{ path('ticketing_resolve', {'page': ticket.id}) }}"> Résoudre
+
+                        </a></td>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </ul>
 {% endblock %}

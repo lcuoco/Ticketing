@@ -52,3 +52,7 @@ demandes_view:
 ticketing_attribute:
     path:     /Ticketing/admin/attribute/{page}
     defaults: { _controller: TicketingBundle:Ticketing:attribute }
+
+ticketing_resolve:
+    path:     /Ticketing/tech/resolve/{page}
+    defaults: { _controller: TicketingBundle:Ticketing:resolve }
