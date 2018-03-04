@@ -64,5 +64,51 @@ class DemandesRepository extends \Doctrine\ORM\EntityRepository
             ;
 
     }
+    public function myFindOnead()
+
+    {
+
+        $qb = $this->createQueryBuilder('d');
+
+
+        $qb
+
+            ->where("d.etat = 'soumis'")
+
+        ;
+
+
+        return $qb
+
+            ->getQuery()
+
+            ->getResult()
+
+            ;
+
+    }
+    public function myFindOneaddems()
+
+    {
+
+        $qb = $this->createQueryBuilder('d');
+
+
+       $qb->join('d.utilisateur', 'u')->addSelect('u');
+
+
+        ;
+
+
+        return $qb
+
+            ->getQuery()
+
+            ->getResult()
+
+            ;
+
+    }
+
 
 }

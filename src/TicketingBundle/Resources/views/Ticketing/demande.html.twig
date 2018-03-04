@@ -3,9 +3,8 @@
 
 
 {% block body %}
-    <h2> Bonjour {{ app.user.username }}</h2>
     <ul>
-        <h3>Demandes à attribuer</h3>
+        <h3>Toutes Les Demandes </h3>
 
         <div class="container">
 
@@ -14,7 +13,10 @@
                 <tr>
                     <th>Objet</th>
                     <th>Description</th>
-                    <th>Attribution</th>
+                    <th>Etat</th>
+                    <th> Demandeur</th>
+                    <th> Date</th>
+
                 </tr>
                 {% for demande in listDemandes %}
                 </thead>
@@ -23,7 +25,9 @@
                     <td>{{ demande.objet }}</td>
                     <td>{{ demande.description }}</td>
                     <td>{{ demande.etat }}</td>
-                    <td> <a href="{{ path('ticketing_attribute', {'page': demande.id}) }}"> Attribuer la demande
+                    <td>{{ demande.utilisateur.username }}</td>
+                    <td>{{  demande.date|date('Y-m-d') }}</td>
+                    <td> <a href="{{ path('demande_view', {'page': demande.id}) }}"> Voir la Demande
 
                         </a></td>
                     {% endfor %}
@@ -34,5 +38,5 @@
 
 
     </ul>
-    <a href="{{ path('demandes_view')}}"> Voir Toutes les demandes</a>
+    <a href="{{ path('ticketing_admin')}}"> Retour aux demandes en cours</a>
 {% endblock %}

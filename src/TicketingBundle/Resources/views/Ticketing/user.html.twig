@@ -14,6 +14,7 @@
                         <th>Objet</th>
                         <th>Description</th>
                         <th>Etat</th>
+                        <th>Date</th>
                     </tr>
                     {% for demande in listDemandes %}
                     </thead>
@@ -22,6 +23,7 @@
                         <td>{{ demande.objet }}</td>
                         <td>{{ demande.description }}</td>
                         <td>{{ demande.etat }}</td>
+                        <td>{{  demande.date|date('Y-m-d') }}</td>
                         <td> <a href="{{ path('demande_view', {'page': demande.id}) }}"> Voir la Demande
 
                             </a></td>
