@@ -18,6 +18,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Bridge\Doctrine\Form\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\PasswordType;
 use Symfony\Component\HttpFoundation\Response;
 use TicketingUserBundle\TicketingUserBundle;
 use Doctrine\ORM\EntityRepository;
@@ -119,7 +121,6 @@ class TicketingController extends Controller
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $demande);
 
 
-
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
 
         $formBuilder
@@ -161,13 +162,12 @@ class TicketingController extends Controller
 
             if ($form->isValid()) {
 
-                $someNewFilename = "piecejointe" . $demande->getObjet().$demande->getDescription();
+                $someNewFilename = "piecejointe" . $demande->getObjet() . $demande->getDescription();
 
                 $file = $form['piecejointe']->getData();
                 $file->move('Pieces', $someNewFilename);
 
-                $demande->setPiecejointe('Pieces/'.$someNewFilename);
-
+                $demande->setPiecejointe('Pieces/' . $someNewFilename);
 
 
                 // On enregistre notre objet $advert dans la base de données, par exemple
@@ -177,8 +177,6 @@ class TicketingController extends Controller
                 $em->persist($demande);
 
                 $em->flush();
-
-
 
 
                 $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
@@ -211,7 +209,6 @@ class TicketingController extends Controller
         // Ici, on récupérera l'annonce correspondante à l'id $id
 
 
-
         $repository = $this
             ->getDoctrine()
             ->getManager()
@@ -225,8 +222,6 @@ class TicketingController extends Controller
             ->getRepository('TicketingBundle:Demandes');
 
         $Listdem = $repository->myFindOnedem($page);
-
-
 
 
         return $this->render('TicketingBundle:Ticketing:view.html.twig', array(
@@ -273,8 +268,8 @@ class TicketingController extends Controller
         $formBuilder
             ->add('delai', integerType::class, array('label' => 'Délai :'))
             ->add('urgence', CheckboxType::class, array('label' => 'Demande urgente ?'))
-            ->add('utilisateur', EntityType::class, array('label' => 'Technicien à attribuer' ,
-                'class' => Utilisateurs::class,'query_builder' => function (EntityRepository $er) {
+            ->add('utilisateur', EntityType::class, array('label' => 'Technicien à attribuer',
+                'class' => Utilisateurs::class, 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->where("u.roles != 'a:1:{i:0;s:9:\"ROLE_USER\";}'");
 
@@ -298,7 +293,7 @@ class TicketingController extends Controller
 
 
         $demandes = $repository->myFindOnedem($page);
-        foreach($demandes as $demande) {
+        foreach ($demandes as $demande) {
             $ticket->setDemande($demande);
             $demande->setEtat('attribue');
         }
@@ -414,7 +409,186 @@ class TicketingController extends Controller
 
         return $this->render('TicketingBundle:Ticketing:resolve.html.twig', array(
 
-             'listTickets' => $listTickets, 'formticketcpt' => $formticketcpt->createView()
+            'listTickets' => $listTickets, 'formticketcpt' => $formticketcpt->createView()
+
+        ));
+    }
+
+    public function inscriptionAction(Request $request)
+    {
+        // On crée un objet Advert
+
+        $utilisateur = new Utilisateurs();
+
+
+        // On crée le FormBuilder grâce au service form factory
+
+        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $utilisateur);
+
+
+        // On ajoute les champs de l'entité que l'on veut à notre formulaire
+
+        $formBuilder
+            ->add('nom', TextType::class, array('label' => 'Nom :'))
+            ->add('prenom', TextType::class, array('label' => 'Prénom :'))
+            ->add('password', TextType::class, array('label' => 'Mot de Passe :'))
+            ->add('email', TextType::class, array('label' => 'Email :'))
+            ->add('envoyer', SubmitType::class, array('label' => 'Créer mon compte'));
+
+        // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
+        // On récupère le service
+
+
+// Si l'utilisateur courant est anonyme, $user vaut « anon. »
+
+
+// Sinon, c'est une instance de notre entité User, on peut l'utiliser normalement
+
+        $utilisateur->setRoles(array('ROLE_USER'));
+
+
+
+        $utilisateur->setSalt('');
+
+        // À partir du formBuilder, on génère le formulaire
+
+        $form = $formBuilder->getForm();
+
+
+
+        // Si la requête est en POST
+
+        if ($request->isMethod('POST')) {
+
+            // On fait le lien Requête <-> Formulaire
+
+            // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
+
+            $form->handleRequest($request);
+
+
+            // On vérifie que les valeurs entrées sont correctes
+
+
+            // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+
+            if ($form->isValid()) {
+
+
+                // On enregistre notre objet $advert dans la base de données, par exemple
+
+                $em = $this->getDoctrine()->getManager();
+
+                $em->persist($utilisateur);
+
+                ;
+                $utilisateur->setUsername( $form['nom']->getData() . $form['prenom']->getData());
+
+                $em->flush();
+
+
+                $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+
+                // On redirige vers la page de visualisation de l'annonce nouvellement créée
+                return $this->redirectToRoute('ticketing_homepage');
+            }
+
+
+
+        }
+        return $this->render('TicketingBundle:Ticketing:inscription.html.twig', array(
+
+            'form' => $form->createView()
+
+        ));
+    }
+    public function inscriptiontechAction(Request $request)
+    {
+        // On crée un objet Advert
+
+        $utilisateur = new Utilisateurs();
+
+
+        // On crée le FormBuilder grâce au service form factory
+
+        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $utilisateur);
+
+
+        // On ajoute les champs de l'entité que l'on veut à notre formulaire
+
+        $formBuilder
+            ->add('nom', TextType::class, array('label' => 'Nom :'))
+            ->add('prenom', TextType::class, array('label' => 'Prénom :'))
+            ->add('password', TextType::class, array('label' => 'Mot de Passe :'))
+            ->add('email', TextType::class, array('label' => 'Email :'))
+            ->add('envoyer', SubmitType::class, array('label' => 'Créer mon compte'));
+
+        // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
+        // On récupère le service
+
+
+// Si l'utilisateur courant est anonyme, $user vaut « anon. »
+
+
+// Sinon, c'est une instance de notre entité User, on peut l'utiliser normalement
+
+        $utilisateur->setRoles(array('ROLE_TECH'));
+
+
+
+        $utilisateur->setSalt('');
+
+        // À partir du formBuilder, on génère le formulaire
+
+        $form = $formBuilder->getForm();
+
+
+
+        // Si la requête est en POST
+
+        if ($request->isMethod('POST')) {
+
+            // On fait le lien Requête <-> Formulaire
+
+            // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
+
+            $form->handleRequest($request);
+
+
+            // On vérifie que les valeurs entrées sont correctes
+
+
+            // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+
+            if ($form->isValid()) {
+
+
+                // On enregistre notre objet $advert dans la base de données, par exemple
+
+                $em = $this->getDoctrine()->getManager();
+
+                $em->persist($utilisateur);
+
+                ;
+                $utilisateur->setUsername( $form['nom']->getData() . $form['prenom']->getData());
+
+                $em->flush();
+
+
+                $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+
+                // On redirige vers la page de visualisation de l'annonce nouvellement créée
+                return $this->redirectToRoute('ticketing_homepage');
+            }
+
+
+
+        }
+        return $this->render('TicketingBundle:Ticketing:inscriptiontech.html.twig', array(
+
+            'form' => $form->createView()
 
         ));
     }

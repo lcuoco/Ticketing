@@ -56,3 +56,11 @@ ticketing_attribute:
 ticketing_resolve:
     path:     /Ticketing/tech/resolve/{page}
     defaults: { _controller: TicketingBundle:Ticketing:resolve }
+
+ticketing_inscription:
+    path:     /Ticketing/inscription
+    defaults: { _controller: TicketingBundle:Ticketing:inscription }
+
+ticketing_inscription_tech:
+    path:     /Ticketing/admin/inscription
+    defaults: { _controller: TicketingBundle:Ticketing:inscriptiontech }
