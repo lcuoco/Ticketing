@@ -10,12 +10,12 @@
 
     {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
 
-    <h1> <div class = "text-center"> Connexion </div></h1>
+    <h1> <div class = "text-center"> Connexion au Portail</div></h1>
     <br><br>
 
     <form class="form-horizontal" action="{{ path('login_check') }}" method="post"s>
         <div class="form-group">
-        <label class="control-label col-sm-offset-3 col-sm-2" for="username">Login :</label>
+        <label class="control-label col-sm-offset-3 col-sm-2" for="username">Nom d'Utilisateur :</label>
             <div class="col-sm-3">
         <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" />
             </div>

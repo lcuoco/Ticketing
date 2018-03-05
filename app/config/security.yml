@@ -8,7 +8,7 @@ security:
   role_hierarchy:
     ROLE_USER:       [ROLE_DEM]
     ROLE_TECH:       [ROLE_RAPP]
-    ROLE_ADMIN:       [ROLE_TRIE]
+    ROLE_ADMIN:       [ROLE_TRIE, ROLE_TECH]
     ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
   providers:

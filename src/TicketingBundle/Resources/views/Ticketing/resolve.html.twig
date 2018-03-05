@@ -10,6 +10,7 @@
         <h4>Description : </h4> {{ ticket.demande.description }}
         <h4>Fait par : </h4> {{ ticket.demande.utilisateur.username }}
         <h4>Délai :</h4> {{ ticket.delai }} Jours
+        <h4>Piece Jointe :</h4><a href="{{ asset(ticket.demande.piecejointe) }}"><img class = "pcj" src="{{ asset(ticket.demande.piecejointe ) }}" /></a>
         <h4>Date : </h4> {{  ticket.demande.date|date('Y-m-d') }}
         {% if ticket.urgence == 1 %} <h4>Urgence : </h4>  Demande Urgente {% endif %}
         {{ form(formticketcpt) }}

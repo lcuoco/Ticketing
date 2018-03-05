@@ -1,5 +1,9 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
-{% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>{% endblock %}
+{% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>
+<ul class="nav navbar-nav navbar-right "><li class ="active"><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li>
+    {% if app.user.username =='Alexandre'  %}
+        <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_admin') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Administrateur</a></li>
+        {% endif %}{% endblock %}
 {% block body %}
     <h2> Bonjour {{ app.user.username }}</h2>
     <ul>

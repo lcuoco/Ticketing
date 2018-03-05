@@ -47,6 +47,10 @@ class TicketingController extends Controller
 
     public function userAction()
     {
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+
+            return $this->redirectToRoute('ticketing_admin');
+        }
         if (!$this->get('security.authorization_checker')->isGranted('ROLE_DEM')) {
 
             // Sinon on déclenche une exception « Accès interdit »
@@ -115,13 +119,14 @@ class TicketingController extends Controller
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $demande);
 
 
+
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
 
         $formBuilder
-            ->add('objet', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('piecejointe', FileType::class)
-            ->add('Envoyer', SubmitType::class);
+            ->add('objet', TextType::class, array('label' => 'Objet :'))
+            ->add('description', TextareaType::class, array('label' => 'Description :'))
+            ->add('piecejointe', FileType::class, array('label' => 'Image à joindre :'))
+            ->add('Envoyer', SubmitType::class, array('label' => 'Créer la demande'));
 
         // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
         // On récupère le service
@@ -156,6 +161,15 @@ class TicketingController extends Controller
 
             if ($form->isValid()) {
 
+                $someNewFilename = "piecejointe" . $demande->getObjet().$demande->getDescription();
+
+                $file = $form['piecejointe']->getData();
+                $file->move('Pieces', $someNewFilename);
+
+                $demande->setPiecejointe('Pieces/'.$someNewFilename);
+
+
+
                 // On enregistre notre objet $advert dans la base de données, par exemple
 
                 $em = $this->getDoctrine()->getManager();
@@ -163,6 +177,8 @@ class TicketingController extends Controller
                 $em->persist($demande);
 
                 $em->flush();
+
+
 
 
                 $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
@@ -255,15 +271,15 @@ class TicketingController extends Controller
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
 
         $formBuilder
-            ->add('delai', integerType::class)
-            ->add('urgence', CheckboxType::class)
-            ->add('utilisateur', EntityType::class, array(
+            ->add('delai', integerType::class, array('label' => 'Délai :'))
+            ->add('urgence', CheckboxType::class, array('label' => 'Demande urgente ?'))
+            ->add('utilisateur', EntityType::class, array('label' => 'Technicien à attribuer' ,
                 'class' => Utilisateurs::class,'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->where("u.roles != 'a:1:{i:0;s:9:\"ROLE_USER\";}'");
 
                 }, 'choice_label' => 'username',))
-            ->add('Envoyer', SubmitType::class);
+            ->add('Envoyer', SubmitType::class, array('label' => 'Attribuer'));
 
         // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
         // On récupère le service
@@ -353,8 +369,8 @@ class TicketingController extends Controller
             // On ajoute les champs de l'entité que l'on veut à notre formulaire
 
             $formBuilder
-                ->add('compterendu', TextareaType::class)
-                ->add('Envoyer', SubmitType::class);
+                ->add('compterendu', TextareaType::class, array('label' => 'Entrez un compte rendu :'))
+                ->add('Envoyer', SubmitType::class, array('label' => 'Clore le Ticket'));
             $formticketcpt = $formBuilder->getForm();
 
             // Si la requête est en POST

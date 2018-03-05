@@ -1,13 +1,16 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
-{% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-    <li><a href="{{ path('ticketing_add') }}"><span class="glyphicon glyphicon-plus"></span> Faire une demande</a></li></ul>{% endblock %}
+{% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_add') }}"><span class="glyphicon glyphicon-plus"></span> Faire une demande</a></li>
+    <li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>{% endblock %}
 {% block body %}
+
     <h2> Tableau de Bord de {{ app.user.username }}</h2>
+
     <ul>
         <h3>Demandes en cours</h3>
 
             <div class="container">
-
+                <div class="well">
                 <table class="table table-striped">
                 <thead>
                     <tr>
@@ -41,8 +44,7 @@
 
     <h3>Demandes Resolues</h3>
 
-    <div class="container">
-
+                <div class="well">
         <table class="table table-striped">
             <thead>
             <tr>
@@ -61,12 +63,13 @@
                     <td>Demande Résolue</td>
                 {% endif %}
                 <td>{{  demande.date|date('Y-m-d') }}</td>
-                <td> <a href="{{ path('demande_view', {'page': demande.id}) }}"> Voir la Demande
+                <td> <a href="{{ path('demande_view', {'page': demande.id}) }}"> Voir la Resolution
 
                     </a></td>
                 {% endfor %}
             </tbody>
         </table>
+    </div>
     </div>
 
 
