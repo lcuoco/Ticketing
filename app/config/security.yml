@@ -36,7 +36,7 @@ security:
             default_target_path: /Ticketing
         logout:
             path: logout
-            target: login
+            target: ticketing_homepage
 
   access_control:
       - { path: ^/admin, roles: ROLE_ADMIN }
