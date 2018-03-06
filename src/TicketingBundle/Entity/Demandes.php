@@ -49,7 +49,7 @@ class Demandes
     /**
      * @var string
      *
-     * @ORM\Column(name="piecejointe", type="string", length=255 , nullable=false )
+     * @ORM\Column(name="piecejointe", type="string", length=255 , nullable=true )
      */
     private $piecejointe;
 

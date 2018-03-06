@@ -126,7 +126,8 @@ class TicketingController extends Controller
         $formBuilder
             ->add('objet', TextType::class, array('label' => 'Objet :'))
             ->add('description', TextareaType::class, array('label' => 'Description :'))
-            ->add('piecejointe', FileType::class, array('label' => 'Image à joindre :'))
+            ->add('piecejointe', FileType::class, array('label' => 'Image à joindre :',
+        'required'  => false))
             ->add('Envoyer', SubmitType::class, array('label' => 'Créer la demande'));
 
         // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
@@ -163,12 +164,12 @@ class TicketingController extends Controller
             if ($form->isValid()) {
 
                 $someNewFilename = "piecejointe" . $demande->getObjet() . $demande->getDescription();
+                if(!isset($form['piecejointe'])) {
+                    $file = $form['piecejointe']->getData();
+                    $file->move('Pieces', $someNewFilename);
 
-                $file = $form['piecejointe']->getData();
-                $file->move('Pieces', $someNewFilename);
-
-                $demande->setPiecejointe('Pieces/' . $someNewFilename);
-
+                    $demande->setPiecejointe('Pieces/' . $someNewFilename);
+                }
 
                 // On enregistre notre objet $advert dans la base de données, par exemple
 
@@ -267,7 +268,7 @@ class TicketingController extends Controller
 
         $formBuilder
             ->add('delai', integerType::class, array('label' => 'Délai :'))
-            ->add('urgence', CheckboxType::class, array('label' => 'Demande urgente ?'))
+            ->add('urgence', CheckboxType::class, array('label' => 'Demande urgente ?', 'required'  => false))
             ->add('utilisateur', EntityType::class, array('label' => 'Technicien à attribuer',
                 'class' => Utilisateurs::class, 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')

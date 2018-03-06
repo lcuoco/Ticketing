@@ -1,5 +1,5 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
-{% block login %}<li><a href="{{ path('login') }}">Login</a></li>{%  endblock %}
+{% block login %}<li class="active" ><a href="{{ path('ticketing_homepage') }}"><span class="glyphicon glyphicon-home"></span> Acceuil</a></li><li><a href="{{ path('login') }}"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li><li><a href="{{ path('ticketing_inscription') }}"> <span class="glyphicon glyphicon-pencil"></span> Inscription</a></li>{%  endblock %}
 
 {% block body %}
 

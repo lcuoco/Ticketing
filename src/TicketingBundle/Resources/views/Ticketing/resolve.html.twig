@@ -1,5 +1,6 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
-{% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>{% endblock %}
+{% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>
+{% endblock %}
 {% block body %}
     {% for ticket in listTickets %}
     <h3>TIcket de la demande numéros {{ ticket.demande.id }}</h3>
@@ -10,7 +11,9 @@
         <h4>Description : </h4> {{ ticket.demande.description }}
         <h4>Fait par : </h4> {{ ticket.demande.utilisateur.username }}
         <h4>Délai :</h4> {{ ticket.delai }} Jours
+        {% if ticket.demande.piecejointe %} }}
         <h4>Piece Jointe :</h4><a href="{{ asset(ticket.demande.piecejointe) }}"><img class = "pcj" src="{{ asset(ticket.demande.piecejointe ) }}" /></a>
+            {% endif %}
         <h4>Date : </h4> {{  ticket.demande.date|date('Y-m-d') }}
         {% if ticket.urgence == 1 %} <h4>Urgence : </h4>  Demande Urgente {% endif %}
         {{ form(formticketcpt) }}

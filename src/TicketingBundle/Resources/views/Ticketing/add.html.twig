@@ -1,4 +1,5 @@
-{% extends "TicketingBundle:Ticketing:user.html.twig" %}
+{% extends "TicketingBundle:Ticketing:layout.html.twig" %}
+{% block logout %}  <li><a href="{{ path('ticketing_homepage') }}"><span class="glyphicon glyphicon-home"></span> Acceuil</a></li><li class = 'active'><a href="{{ path('ticketing_add') }}"><span class="glyphicon glyphicon-plus"></span> Faire une demande</a></li><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>{% endblock %}
 
 
 
@@ -11,5 +12,6 @@
     {{ form(form) }}
 
 </div>
+    <br><br> <a href="{{ path('ticketing_user') }}"> <button class =" btn btn-danger">Retour</button></a>
 
 {% endblock %}

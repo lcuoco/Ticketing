@@ -1,5 +1,5 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
-{% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>{% endblock %}
+{% block logout %}  <li><a href="{{ path('ticketing_homepage') }}"><span class="glyphicon glyphicon-home"></span> Acceuil</a></li><li><a href="{{ path('ticketing_add') }}"><span class="glyphicon glyphicon-plus"></span> Faire une demande</a></li><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>{% endblock %}
 {% block body %}
     {% for tickets in ticket %}
         <h3> Detail de la demande </h3><br>
