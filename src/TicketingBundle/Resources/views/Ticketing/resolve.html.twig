@@ -36,7 +36,7 @@
                 </div>
             </div>
         <div class = col-lg-6>
-            <br><br><br>{% if ticket.demande.piecejointe %}<h4>Piece Jointe :</h4><a href="{{ asset(ticket.demande.piecejointe) }}"><img class = "pcj" src="{{ asset(ticket.demande.piecejointe ) }}" /></a>{% endif %}
+            <br><br><br>{% if ticket.demande.piecejointe != 'ok' %}<h4>Piece Jointe :</h4><a href="{{ asset(ticket.demande.piecejointe) }}"><img class = "pcj" src="{{ asset(ticket.demande.piecejointe ) }}" /></a>{% endif %}
         </div>
         {% endfor %}
 {% endblock %}

@@ -54,6 +54,11 @@ class TicketingController extends Controller
 
             return $this->redirectToRoute('ticketing_admin');
         }
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_TECH')) {
+
+            return $this->redirectToRoute('ticketing_tech');
+        }
+
         if (!$this->get('security.authorization_checker')->isGranted('ROLE_DEM')) {
 
             // Sinon on déclenche une exception « Accès interdit »
@@ -73,6 +78,10 @@ class TicketingController extends Controller
 
     public function techAction()
     {
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
+
+            return $this->redirectToRoute('ticketing_user');
+        }
         if (!$this->get('security.authorization_checker')->isGranted('ROLE_RAPP')) {
 
             // Sinon on déclenche une exception « Accès interdit »
@@ -93,6 +102,11 @@ class TicketingController extends Controller
 
     public function adminAction()
     {
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
+
+            return $this->redirectToRoute('ticketing_user');
+
+        }
         if (!$this->get('security.authorization_checker')->isGranted('ROLE_TRIE')) {
 
             // Sinon on déclenche une exception « Accès interdit »
@@ -115,6 +129,18 @@ class TicketingController extends Controller
     {
         // On crée un objet Advert
 
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+
+            return $this->redirectToRoute('ticketing_admin');
+
+        }
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_TECH')) {
+
+            return $this->redirectToRoute('ticketing_tech');
+
+        }
+
+
         $demande = new Demandes();
 
 
@@ -129,7 +155,7 @@ class TicketingController extends Controller
             ->add('objet', TextType::class, array('label' => 'Objet :'))
             ->add('description', TextareaType::class, array('label' => 'Description :'))
             ->add('piecejointe', FileType::class, array('label' => 'Image à joindre :',
-        'required'  => false))
+        'required'  => false, 'empty_data' => 'ok'))
             ->add('Envoyer', SubmitType::class, array('label' => 'Créer la demande'));
 
         // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
@@ -165,9 +191,12 @@ class TicketingController extends Controller
 
             if ($form->isValid()) {
 
+
+
                 $someNewFilename = "piecejointe" . $demande->getObjet() . $demande->getDescription();
-                if(!isset($form['piecejointe'])) {
-                    $file = $form['piecejointe']->getData();
+                $file = $form['piecejointe']->getData();
+                if($file != 'ok') {
+
                     $file->move('Pieces', $someNewFilename);
 
                     $demande->setPiecejointe('Pieces/' . $someNewFilename);
@@ -178,6 +207,7 @@ class TicketingController extends Controller
                 $em = $this->getDoctrine()->getManager();
 
                 $em->persist($demande);
+
 
                 $em->flush();
 

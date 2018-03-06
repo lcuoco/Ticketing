@@ -36,7 +36,7 @@
                     <td>{{ ticket.demande.etat }}</td>
                     <td>{{ ticket.demande.utilisateur.username }} </td>
                     <td>{{  ticket.demande.date|date('Y-m-d') }}</td>
-                    <td> <a href="{{ path('ticketing_resolve', {'page': ticket.id}) }}"> Résoudre
+                    <td> <a href="{{ path('ticketing_resolve', {'page': ticket.id}) }}"> Résoudre</a>
 
                         </a></td>
                     {% endfor %}
@@ -46,8 +46,8 @@
 
 
 
-    </ul>
-             <ul>
+        </ul>
+             <ul>   </a>
                  <h3>Demandes Résolues</h3>
 
                  <div class="container">
