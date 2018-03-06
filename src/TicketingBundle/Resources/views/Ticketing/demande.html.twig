@@ -1,5 +1,13 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
-{% block logout %}<ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li>  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>{% endblock %}
+{% block logout %}<ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_admin') }}"><span class="glyphicon glyphicon-bullhorn"></span> Interface Administrateur</a></li>
+<ul class="nav navbar-nav navbar-right"><li class = "active"><a href="{{ path('demandes_view') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Toutes les demandes</a></li>
+    <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li>
+
+
+
+        <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_inscription_tech') }}"><span class="glyphicon glyphicon-plus"></span> Inscrire un nouveau technicien</a></li>
+
+            <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>{% endblock %}
 
 
 {% block body %}
@@ -38,5 +46,4 @@
 
 
     </ul>
-    <a href="{{ path('ticketing_admin')}}"> Retour aux demandes en cours</a>
 {% endblock %}

@@ -1,5 +1,7 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
-{% block logout %}  <li><a href="{{ path('ticketing_homepage') }}"><span class="glyphicon glyphicon-home"></span> Acceuil</a></li><li><a href="{{ path('ticketing_add') }}"><span class="glyphicon glyphicon-plus"></span> Faire une demande</a></li><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>{% endblock %}
+{% block logout %}  {% if app.user.username != 'Administrateur' %}<li><a href="{{ path('ticketing_homepage') }}"><span class="glyphicon glyphicon-home"></span> Acceuil</a></li><li><a href="{{ path('ticketing_add') }}"><span class="glyphicon glyphicon-plus"></span> Faire une demande</a> {% elseif app.user.username == 'Administrateur' %}<ul class="nav navbar-nav navbar-right"><li ><a href="{{ path('ticketing_admin') }}"><span class="glyphicon glyphicon-bullhorn"></span> Interface Administrateur</a></li>
+    <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('demandes_view') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Toutes les demandes</a></li>
+        <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li> <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_inscription_tech') }}"><span class="glyphicon glyphicon-plus"></span> Inscrire un nouveau technicien</a></li>{% endif %} </li><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>{% endblock %}
 {% block body %}
     {% for tickets in ticket %}
         <h3> Detail de la demande </h3><br>

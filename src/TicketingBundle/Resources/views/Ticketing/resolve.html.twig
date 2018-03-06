@@ -1,23 +1,42 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
-{% block logout %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>
+{% block logout %}  {% if app.user.username == "Administrateur" %} <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_admin') }}"><span class="glyphicon glyphicon-bullhorn"></span> Interface Administrateur</a></li>
+    <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li>
+
+        <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_inscription_tech') }}"><span class="glyphicon glyphicon-plus"></span> Inscrire un nouveau technicien</a></li>
+
+            <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>{% else %}  <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>{% endif %}
 {% endblock %}
 {% block body %}
     {% for ticket in listTickets %}
-    <h3>TIcket de la demande numéros {{ ticket.demande.id }}</h3>
+
 
     <div class="container">
+        <div class ="row">
+        </div>
 
-        <h4>Objet : </h4> {{ ticket.demande.objet }}
-        <h4>Description : </h4> {{ ticket.demande.description }}
-        <h4>Fait par : </h4> {{ ticket.demande.utilisateur.username }}
-        <h4>Délai :</h4> {{ ticket.delai }} Jours
-        {% if ticket.demande.piecejointe %} }}
-        <h4>Piece Jointe :</h4><a href="{{ asset(ticket.demande.piecejointe) }}"><img class = "pcj" src="{{ asset(ticket.demande.piecejointe ) }}" /></a>
-            {% endif %}
-        <h4>Date : </h4> {{  ticket.demande.date|date('Y-m-d') }}
-        {% if ticket.urgence == 1 %} <h4>Urgence : </h4>  Demande Urgente {% endif %}
-        {{ form(formticketcpt) }}
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+                <div class="db-wrapper">
+                    <a href="{{ path('ticketing_tech') }}"> <button class =" btn btn-danger">Retour</button></a>
+                    <div class="db-pricing-seven">
+                        <ul>
+                            <li class="price">
 
-                {% endfor %}
-               <br><br> <a href="{{ path('ticketing_tech') }}"> <button class =" btn btn-danger">Retour</button>
+                                <h3>TIcket de la demande numéros {{ ticket.demande.id }}</h3>
+
+                            </li>
+
+                            <li class = 'textein'><strong>Objet : </strong>  {{ ticket.demande.objet }}</li>
+                            <li class = 'textein'><strong>Description : </strong> {{ ticket.demande.description }}</li>
+                            <li class = 'textein'><strong>Fait par : </strong>{{ ticket.demande.utilisateur.username }}</li>
+                            <li class = 'textein'><strong>Date : </strong>{{  ticket.demande.date|date('Y-m-d') }}</li>
+                            {% if ticket.urgence == 1 %} <li class = 'textein'><strong>Urgence : </strong>  Demande Urgente</li>  {% endif %}
+                            <li class = 'textein'>{{ form(formticketcpt) }} </li>
+
+                    </div>
+                </div>
+            </div>
+        <div class = col-lg-6>
+            <br><br><br>{% if ticket.demande.piecejointe %}<h4>Piece Jointe :</h4><a href="{{ asset(ticket.demande.piecejointe) }}"><img class = "pcj" src="{{ asset(ticket.demande.piecejointe ) }}" /></a>{% endif %}
+        </div>
+        {% endfor %}
 {% endblock %}
