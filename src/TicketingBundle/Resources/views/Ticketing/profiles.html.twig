@@ -1,0 +1,68 @@
+{% extends "TicketingBundle:Ticketing:layout.html.twig" %}
+{% block logout %} <ul class="nav navbar-nav navbar-right"><li ><a href="{{ path('ticketing_admin') }}"><span class="glyphicon glyphicon-bullhorn"></span> Interface Administrateur</a></li>
+    <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('demandes_view') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Toutes les demandes</a></li>
+    <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li> <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_inscription_tech') }}"><span class="glyphicon glyphicon-plus"></span> Inscrire un nouveau technicien</a></li> <li class = 'active'><a href="{{ path('ticketing_profiles') }}"><span class="glyphicon glyphicon-user"></span> Gérer les Utilisateurs</a></li></li><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>{% endblock %}
+            {% block body %}
+            <h2>Utilisateurs</h2>
+            <div class="container">
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Nom d'Utilisateur</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th> Mot de passe</th>
+                    <th> Email</th>
+
+                </tr>
+            {% for user in users %}
+            {% if user.roles.0 == 'ROLE_USER'%}
+            </thead>
+            <tbody>
+
+                <td>{{ user.username }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom  }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.email }}</td>
+
+
+                    </td>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+            </table>
+            </div>
+            <h2>Techniciens</h2>
+            <div class="container">
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Nom d'Utilisateur</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th> Mot de passe</th>
+                    <th> Email</th>
+
+                </tr>
+            {% for user in users %}
+            {% if user.roles.0 == 'ROLE_TECH'%}
+            </thead>
+            <tbody>
+
+                <td>{{ user.username }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom  }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.email }}</td>
+
+
+                    </td>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+            </table>
+            </div>
+            {% endblock %}

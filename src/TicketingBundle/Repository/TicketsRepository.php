@@ -92,4 +92,33 @@ class TicketsRepository extends \Doctrine\ORM\EntityRepository
             ;
 
     }
+
+    public function myFindOneres($id)
+
+    {
+
+        $qb = $this->createQueryBuilder('t');
+
+
+        $qb
+            ->join('t.utilisateur', 'u')->addSelect('u')
+            ->join('t.demande', 'd')->addSelect('d')
+            ->where('t.utilisateur = :id')
+            ->andWhere("d.etat = 'resolue'")
+
+            ->setParameter('id', $id)
+
+        ;
+
+
+        return $qb
+
+            ->getQuery()
+
+            ->getResult()
+
+            ;
+
+    }
+
 }

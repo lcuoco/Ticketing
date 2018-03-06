@@ -64,3 +64,7 @@ ticketing_inscription:
 ticketing_inscription_tech:
     path:     /Ticketing/admin/inscription
     defaults: { _controller: TicketingBundle:Ticketing:inscriptiontech }
+
+ticketing_profiles:
+    path:     /Ticketing/admin/profiles
+    defaults: { _controller: TicketingBundle:Ticketing:profiles }

@@ -1,12 +1,13 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
 {% block logout %}
 
-{% if app.user.username =='Administrateur'  %}
+{% if app.user.roles.0 =='ROLE_ADMIN'  %}
         <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_admin') }}"><span class="glyphicon glyphicon-bullhorn"></span> Interface Administrateur</a></li>
         <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('demandes_view') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Toutes les demandes</a></li>
 
 {% endif %}<li class ="active"><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li>{% if app.user.username =='Administrateur'  %}
         <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_inscription_tech') }}"><span class="glyphicon glyphicon-plus"></span> Inscrire un nouveau technicien</a></li>
+            <li><a href="{{ path('ticketing_profiles') }}"><span class="glyphicon glyphicon-user"></span> Gérer les Utilisateurs</a></li>
         {% endif %}
          <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     {% endblock %}
@@ -46,4 +47,34 @@
 
 
     </ul>
+             <ul>
+                 <h3>Demandes Résolues</h3>
+
+                 <div class="container">
+
+                     <table class="table table-striped">
+                         <thead>
+                         <tr>
+                             <th>Objet</th>
+                             <th>Description</th>
+                             <th>Etat</th>
+                             <th>Fait par</th>
+                             <th>Date</th>
+                         </tr>
+                         {% for ticket in listTicketsres %}
+                         </thead>
+                         <tbody>
+                         <a>
+                             <td>{{ ticket.demande.objet }}</td>
+                             <td>{{ ticket.demande.description }}</td>
+                             <td>{{ ticket.demande.etat }}</td>
+                             <td>{{ ticket.demande.utilisateur.username }} </td>
+                             <td>{{  ticket.demande.date|date('Y-m-d') }}</td>
+                             <td> <a href="{{ path('ticketing_resolve', {'page': ticket.id}) }}"> Voir la résolution
+
+                                 </a></td>
+                             {% endfor %}
+                         </tbody>
+                     </table>
+                 </div>
 {% endblock %}

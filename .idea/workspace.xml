@@ -6,26 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0d96c3c3-b9d9-42e0-9e0a-bb644880e864" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php" afterPath="$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php" />
+      <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Repository/TicketsRepository.php" afterPath="$PROJECT_DIR$/src/TicketingBundle/Repository/TicketsRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/TicketingBundle/Resources/config/routing.yml" />
       <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/admin.html.twig" afterPath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/admin.html.twig" />
       <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/demande.html.twig" afterPath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/demande.html.twig" />
       <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/inscriptiontech.html.twig" afterPath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/inscriptiontech.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/resolve.html.twig" afterPath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/resolve.html.twig" />
       <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/tech.html.twig" afterPath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/tech.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/view.html.twig" afterPath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/view.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeDemande de dépanageProbleme de machine bureau elle ne demare plus" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeMon ordinateur ne s'allume pluscomment puis je forcer le redémarrage de mon ordinateur" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeProbelme FFF_intranetJe ne peut pas ajouter de joueurs su e portail de getsion des equipes" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeProbelme avec mon bureaumes icones ne repondent plus sur le bureau de mon ordinateur" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeProbleme de ballon de footj'ai perdu mob ballon" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeProbleme de ballon de footje n'arriv eplus trouver mon ballon" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeProbleme de corbeillequand j'essaie de vider ma corbeille un element reste a linterieur" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeProbleme sur le portail FFF_intranetJe ne peux plus céer de joueurs sur le portail de la FFF" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeSoucis de mise à joursMon ICLOUD ne se met plus a jour" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeTestvoilaletets" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointelog paye ne marche plausbesoin d'assistance sur le logiciel de paye" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointelogiciel de payeMon logiciel de paye ne fonctionne plus" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/Pieces/piecejointeprobleme de soutifsoutif sale" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/web/css/index.css" afterPath="$PROJECT_DIR$/web/css/index.css" />
+      <change beforePath="$PROJECT_DIR$/src/TicketingUserBundle/Repository/UtilisateursRepository.php" afterPath="$PROJECT_DIR$/src/TicketingUserBundle/Repository/UtilisateursRepository.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,91 +27,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="view.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/view.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+            <state relative-caret-position="845">
+              <caret line="69" column="63" lean-forward="false" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TicketingController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TicketingController.php" pinned="true" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-77">
-              <caret line="222" column="53" lean-forward="false" selection-start-line="222" selection-start-column="45" selection-end-line="222" selection-end-column="53" />
-              <folding />
+            <state relative-caret-position="9360">
+              <caret line="624" column="42" lean-forward="false" selection-start-line="624" selection-start-column="42" selection-end-line="624" selection-end-column="42" />
+              <folding>
+                <element signature="e#46#103#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demande.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/demande.html.twig">
+      <file leaf-file-name="UtilisateursRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TicketingUserBundle/Repository/UtilisateursRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="184" lean-forward="false" selection-start-line="2" selection-start-column="184" selection-end-line="2" selection-end-column="184" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tickets.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Entity/Tickets.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-232">
-              <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/admin.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="189" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inscription.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/inscription.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inscriptiontech.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/inscriptiontech.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="171" lean-forward="false" selection-start-line="2" selection-start-column="171" selection-end-line="2" selection-end-column="171" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+            <state relative-caret-position="285">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -132,8 +62,68 @@
       <file leaf-file-name="tech.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/tech.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="175" lean-forward="false" selection-start-line="5" selection-start-column="175" selection-end-line="5" selection-end-column="175" />
+            <state relative-caret-position="160">
+              <caret line="11" column="86" lean-forward="false" selection-start-line="11" selection-start-column="86" selection-end-line="11" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demande.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/demande.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="27" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profiles.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/profiles.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TicketsRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Repository/TicketsRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/admin.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="137" lean-forward="false" selection-start-line="10" selection-start-column="137" selection-end-line="10" selection-end-column="137" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/view.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="38" lean-forward="false" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inscriptiontech.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/inscriptiontech.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="137" lean-forward="false" selection-start-line="7" selection-start-column="137" selection-end-line="7" selection-end-column="137" />
               <folding />
             </state>
           </provider>
@@ -166,10 +156,8 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/TicketingBundle/Entity/Tickets.php" />
         <option value="$PROJECT_DIR$/src/TicketingUserBundle/Entity/Utilisateurs.php" />
-        <option value="$PROJECT_DIR$/src/TicketingBundle/Repository/TicketsRepository.php" />
         <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/attribute.html.twig" />
         <option value="$PROJECT_DIR$/src/TicketingBundle/Repository/DemandesRepository.php" />
-        <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/index.html.twig" />
         <option value="$PROJECT_DIR$/src/TicketingUserBundle/Resources/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/inscription.html.twig" />
@@ -182,14 +170,18 @@
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/config/routing_dev.yml" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php" />
         <option value="$PROJECT_DIR$/web/css/index.css" />
         <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/resolve.html.twig" />
-        <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/tech.html.twig" />
-        <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/demande.html.twig" />
+        <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/view.html.twig" />
+        <option value="$PROJECT_DIR$/src/TicketingBundle/Repository/TicketsRepository.php" />
+        <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/admin.html.twig" />
         <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/inscriptiontech.html.twig" />
-        <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/view.html.twig" />
+        <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/demande.html.twig" />
+        <option value="$PROJECT_DIR$/src/TicketingUserBundle/Repository/UtilisateursRepository.php" />
+        <option value="$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php" />
+        <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/profiles.html.twig" />
+        <option value="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/tech.html.twig" />
       </list>
     </option>
   </component>
@@ -244,9 +236,9 @@
       <path value="$PROJECT_DIR$/vendor/coresphere/console-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="285" />
-    <option name="y" value="84" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="73" />
+    <option name="y" value="44" />
     <option name="width" value="1466" />
     <option name="height" value="831" />
   </component>
@@ -475,18 +467,18 @@
       <updated>1519900941181</updated>
       <workItem from="1519900942380" duration="46524000" />
       <workItem from="1520244254128" duration="12045000" />
-      <workItem from="1520325112213" duration="6402000" />
+      <workItem from="1520325112213" duration="9359000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64971000" />
+    <option name="totallyTimeSpent" value="67928000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="73" y="44" width="1466" height="831" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2630458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34691012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -517,30 +509,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/TicketingUserBundle/TicketingUserBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/admin.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="113" lean-forward="false" selection-start-line="2" selection-start-column="113" selection-end-line="2" selection-end-column="141" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/inscriptiontech.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/tech.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -553,7 +521,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
-          <folding />
+          <folding>
+            <element signature="e#46#103#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -677,14 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Repository/TicketsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TicketingUserBundle/DataFixtures/ORM/LoadUtilisateurs.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -738,14 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
           <caret line="68" column="6" lean-forward="false" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/user.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-556">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -822,50 +776,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Entity/Tickets.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-232">
           <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/tech.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="175" lean-forward="false" selection-start-line="5" selection-start-column="175" selection-end-line="5" selection-end-column="175" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-77">
-          <caret line="222" column="53" lean-forward="false" selection-start-line="222" selection-start-column="45" selection-end-line="222" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/inscriptiontech.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="171" lean-forward="false" selection-start-line="2" selection-start-column="171" selection-end-line="2" selection-end-column="171" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/demande.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="184" lean-forward="false" selection-start-line="2" selection-start-column="184" selection-end-line="2" selection-end-column="184" />
           <folding />
         </state>
       </provider>
@@ -878,18 +792,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/TicketingBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/user.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-274">
+          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/inscriptiontech.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="137" lean-forward="false" selection-start-line="7" selection-start-column="137" selection-end-line="7" selection-end-column="137" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="845">
+          <caret line="69" column="63" lean-forward="false" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9360">
+          <caret line="624" column="42" lean-forward="false" selection-start-line="624" selection-start-column="42" selection-end-line="624" selection-end-column="42" />
+          <folding>
+            <element signature="e#46#103#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketingUserBundle/Repository/UtilisateursRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/tech.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="11" column="86" lean-forward="false" selection-start-line="11" selection-start-column="86" selection-end-line="11" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/demande.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="27" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/profiles.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Repository/TicketsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/admin.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="189" />
+        <state relative-caret-position="150">
+          <caret line="10" column="137" lean-forward="false" selection-start-line="10" selection-start-column="137" selection-end-line="10" selection-end-column="137" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/view.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+        <state relative-caret-position="15">
+          <caret line="1" column="38" lean-forward="false" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
           <folding />
         </state>
       </provider>

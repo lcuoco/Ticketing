@@ -19,10 +19,11 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bridge\Doctrine\Form\Type\ChoiceType;
-use Symfony\Bridge\Doctrine\Form\Type\PasswordType;
 use Symfony\Component\HttpFoundation\Response;
 use TicketingUserBundle\TicketingUserBundle;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class TicketingController extends Controller
 {
@@ -86,7 +87,8 @@ class TicketingController extends Controller
 
 
         $listTickets = $repository->myFindOnea($this->getUser());
-        return $this->render('TicketingBundle:Ticketing:tech.html.twig', array('listTickets' => $listTickets));
+        $listTicketsres = $repository->myFindOneres($this->getUser());
+        return $this->render('TicketingBundle:Ticketing:tech.html.twig', array('listTickets' => $listTickets, 'listTicketsres' => $listTicketsres));
     }
 
     public function adminAction()
@@ -432,7 +434,14 @@ class TicketingController extends Controller
         $formBuilder
             ->add('nom', TextType::class, array('label' => 'Nom :'))
             ->add('prenom', TextType::class, array('label' => 'Prénom :'))
-            ->add('password', TextType::class, array('label' => 'Mot de Passe :'))
+            ->add('password', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'invalid_message' => 'The password fields must match.',
+                'options' => array('attr' => array('class' => 'password-field')),
+                'required' => true,
+                'first_options'  => array('label' => 'Password'),
+                'second_options' => array('label' => 'Répéter Password'),
+            ))
             ->add('email', TextType::class, array('label' => 'Email :'))
             ->add('envoyer', SubmitType::class, array('label' => 'Créer mon compte'));
 
@@ -521,7 +530,14 @@ class TicketingController extends Controller
         $formBuilder
             ->add('nom', TextType::class, array('label' => 'Nom :'))
             ->add('prenom', TextType::class, array('label' => 'Prénom :'))
-            ->add('password', TextType::class, array('label' => 'Mot de Passe :'))
+            ->add('password', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'invalid_message' => 'The password fields must match.',
+                'options' => array('attr' => array('class' => 'password-field')),
+                'required' => true,
+                'first_options'  => array('label' => 'Password'),
+                'second_options' => array('label' => 'Répéter Password'),
+            ))
             ->add('email', TextType::class, array('label' => 'Email :'))
             ->add('envoyer', SubmitType::class, array('label' => 'Créer mon compte'));
 
@@ -592,5 +608,24 @@ class TicketingController extends Controller
             'form' => $form->createView()
 
         ));
+
+
+    }
+    public function profilesAction()
+    {
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+
+            return $this->redirectToRoute('ticketing_homepage');
+
+        }
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('TicketingUserBundle:Utilisateurs');
+
+
+        $users = $repository->myFindAll();
+        return $this->render('TicketingBundle:Ticketing:profiles.html.twig', array('users' => $users));
     }
 }

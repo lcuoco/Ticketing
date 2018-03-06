@@ -10,4 +10,22 @@ namespace TicketingUserBundle\Repository;
  */
 class UtilisateursRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function myFindAll()
+
+    {
+
+        $qb = $this->createQueryBuilder('u');
+
+
+
+
+        return $qb
+
+            ->getQuery()
+
+            ->getResult()
+
+            ;
+
+    }
 }
