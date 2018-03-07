@@ -122,7 +122,8 @@ class DemandesRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->createQueryBuilder('d');
 
 
-       $qb->join('d.utilisateur', 'u')->addSelect('u');
+       $qb
+       ->where("d.etat = 'soumis'");
 
 
         ;

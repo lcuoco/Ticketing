@@ -23,21 +23,39 @@
                     <th>Description</th>
                     <th>Etat</th>
                     <th> Demandeur</th>
+                    <th>Attribué à</th>
                     <th> Date</th>
 
                 </tr>
-                {% for demande in listDemandes %}
-                </thead>
-                <tbody>
-                <a>
-                    <td>{{ demande.objet }}</td>
+                {% if listTDemandes %}
+                {% for demande in listTDemandes %}
+                   <tr>
+                <td>{{ demande.objet }}</td>
                     <td>{{ demande.description }}</td>
                     <td>{{ demande.etat }}</td>
                     <td>{{ demande.utilisateur.username }}</td>
+                    <td>Pas encore attribué</td>
                     <td>{{  demande.date|date('Y-m-d') }}</td>
                     <td> <a href="{{ path('demande_view', {'page': demande.id}) }}"> Voir la Demande
+                        </a></td>
+                        </tr>
+                        {% endfor %}
+                {% endif %}
+
+                {% for ticket in listTickets %}
+                </thead>
+                <tbody>
+                <a>
+                    <td>{{ ticket.demande.objet }}</td>
+                    <td>{{ ticket.demande.description }}</td>
+                    <td>{{ ticket.demande.etat }}</td>
+                    <td>{{ ticket.demande.utilisateur.username }}</td>
+                    <td>{{ ticket.utilisateur.username }}</td>
+                    <td>{{  ticket.demande.date|date('Y-m-d') }}</td>
+                    <td> <a href="{{ path('demande_view', {'page': ticket.demande.id}) }}"> Voir la Demande
 
                         </a></td>
+
                     {% endfor %}
                 </tbody>
             </table>

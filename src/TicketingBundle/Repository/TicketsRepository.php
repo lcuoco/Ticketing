@@ -121,4 +121,29 @@ class TicketsRepository extends \Doctrine\ORM\EntityRepository
 
     }
 
+
+    public function myFindOneaddems()
+
+    {
+
+        $qb = $this->createQueryBuilder('t');
+
+
+        $qb->join('t.utilisateur', 'u')->addSelect('u')
+            ->join('t.demande', 'd')->addSelect('d');
+
+
+        ;
+
+
+        return $qb
+
+            ->getQuery()
+
+            ->getResult()
+
+            ;
+
+    }
+
 }

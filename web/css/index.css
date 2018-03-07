@@ -6,7 +6,10 @@
     background-color: #0000F0;
     color: white;
     font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+
 }
+h2, h1, h3{font-family: 'Mina', sans-serif;}
 
 .db-pricing-seven {
     margin-bottom: 30px;

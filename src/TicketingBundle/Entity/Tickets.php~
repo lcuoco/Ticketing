@@ -14,19 +14,20 @@ class Tickets
 {
     /**
 
-     * @ORM\OneToOne(targetEntity="TicketingUserBundle\Entity\Utilisateurs", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="TicketingUserBundle\Entity\Utilisateurs", cascade={"persist", "remove"})
+
+     * @ORM\JoinColumn(nullable=true)
 
      */
     private $utilisateur;
 
     /**
 
-     * @ORM\OneToOne(targetEntity="TicketingBundle\Entity\Demandes", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="TicketingBundle\Entity\Demandes", cascade={"persist", "remove"})
 
      */
     private $demande;
 
-    private $image;
     /**
      * @var int
      *
@@ -67,6 +68,7 @@ class Tickets
     {
         return $this->id;
     }
+
 
     /**
      * Set delai.
@@ -162,5 +164,29 @@ class Tickets
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+
+    /**
+     * Set demande.
+     *
+     * @param \TicketingBundle\Entity\Demandes|null $demande
+     *
+     * @return Tickets
+     */
+    public function setDemande(\TicketingBundle\Entity\Demandes $demande = null)
+    {
+        $this->demande = $demande;
+
+        return $this;
+    }
+
+    /**
+     * Get demande.
+     *
+     * @return \TicketingBundle\Entity\Demandes|null
+     */
+    public function getDemande()
+    {
+        return $this->demande;
     }
 }

@@ -278,10 +278,16 @@ class TicketingController extends Controller
             ->getDoctrine()
             ->getManager()
             ->getRepository('TicketingBundle:Demandes');
+        $listTDemandes = $repository->myFindOneaddems();
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('TicketingBundle:Tickets');
 
 
-        $listDemandes = $repository->myFindOneaddems();
-        return $this->render('TicketingBundle:Ticketing:demande.html.twig', array('listDemandes' => $listDemandes));
+        $listTickets = $repository->myFindOneaddems();
+        return $this->render('TicketingBundle:Ticketing:demande.html.twig', array('listTickets' => $listTickets, 'listTDemandes' => $listTDemandes));
 
 
     }
@@ -309,6 +315,7 @@ class TicketingController extends Controller
                 }, 'choice_label' => 'username',))
             ->add('Envoyer', SubmitType::class, array('label' => 'Attribuer'));
 
+        $formticket = $formBuilder->getForm();
         // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
         // On récupère le service
 
@@ -332,7 +339,7 @@ class TicketingController extends Controller
         }
 
 
-        $formticket = $formBuilder->getForm();
+
 
         // Si la requête est en POST
 

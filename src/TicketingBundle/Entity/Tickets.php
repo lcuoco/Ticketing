@@ -23,7 +23,7 @@ class Tickets
 
     /**
 
-     * @ORM\OneToOne(targetEntity="TicketingBundle\Entity\Demandes", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="TicketingBundle\Entity\Demandes", cascade={"persist", "remove"})
 
      */
     private $demande;
