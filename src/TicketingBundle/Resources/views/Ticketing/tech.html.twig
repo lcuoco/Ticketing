@@ -12,12 +12,12 @@
          <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     {% endblock %}
 {% block body %}
-    <h2> Bonjour {{ app.user.nom }} {{ app.user.prenom }}</h2>
+    <h2> Bonjour {{ app.user.username }}</h2>
     <ul>
         <h3>Demandes à résoudres</h3>
 
         <div class="container">
-
+            <div class = "well coloredwell">
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -42,6 +42,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
         </div>
 
 

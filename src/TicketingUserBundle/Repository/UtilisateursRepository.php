@@ -20,6 +20,7 @@ class UtilisateursRepository extends \Doctrine\ORM\EntityRepository
 
 
         return $qb
+            ->orderBy('u.nom')
 
             ->getQuery()
 

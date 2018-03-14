@@ -27,6 +27,7 @@ class TicketsRepository extends \Doctrine\ORM\EntityRepository
 
 
             ->setParameter('id', $id)
+            ->orderBy('d.date', 'DESC')
 
         ;
 
@@ -107,6 +108,7 @@ class TicketsRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere("d.etat = 'resolue'")
 
             ->setParameter('id', $id)
+            ->orderBy('d.date', 'DESC')
 
         ;
 
@@ -130,7 +132,8 @@ class TicketsRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb->join('t.utilisateur', 'u')->addSelect('u')
-            ->join('t.demande', 'd')->addSelect('d');
+            ->join('t.demande', 'd')->addSelect('d')
+            ->orderBy('d.date', 'DESC')
 
 
         ;

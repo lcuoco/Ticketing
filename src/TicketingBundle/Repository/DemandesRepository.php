@@ -25,6 +25,7 @@ class DemandesRepository extends \Doctrine\ORM\EntityRepository
 
 
             ->setParameter('id', $id)
+            ->orderBy('d.date', 'DESC')
 
         ;
 
@@ -53,6 +54,8 @@ class DemandesRepository extends \Doctrine\ORM\EntityRepository
 
 
             ->setParameter('id', $id)
+
+            ->orderBy('d.date', 'DESC')
 
         ;
 
@@ -102,6 +105,8 @@ class DemandesRepository extends \Doctrine\ORM\EntityRepository
         $qb
 
             ->where("d.etat = 'soumis'")
+            ->orderBy('d.date', 'DESC')
+
 
         ;
 
@@ -123,7 +128,8 @@ class DemandesRepository extends \Doctrine\ORM\EntityRepository
 
 
        $qb
-       ->where("d.etat = 'soumis'");
+       ->where("d.etat = 'soumis'")
+       ->orderBy('d.date');
 
 
         ;
