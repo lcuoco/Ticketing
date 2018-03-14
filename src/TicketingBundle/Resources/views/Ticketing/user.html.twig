@@ -52,10 +52,10 @@
                         <td>{{ demande.objet }}</td>
                         <td>{{ demande.description }}</td>
                         {% if demande.etat == 'soumis'  %}
-                        <td>Demande soumise</td>
+                        <td><img  style = 'width: 20px;' src={{ asset('images/button-red.png') }} > Demande soumise</td>
                         {% endif %}
                         {% if demande.etat == 'attribue'  %}
-                            <td>Demande attribué à un technicien</td>
+                            <td> <img  style = 'width: 20px;' src={{ asset('images/button-orange.png') }} > Demande attribué à un technicien</td>
                         {% endif %}
                         <td>{{  demande.date|date('Y-m-d') }}</td>
                         <td> <a href="{{ path('demande_view', {'page': demande.id}) }}"> Voir la Demande
@@ -86,7 +86,7 @@
                 <td>{{ demande.objet }}</td>
                 <td>{{ demande.description }}</td>
                 {% if demande.etat == 'resolue'  %}
-                    <td>Demande Résolue</td>
+                    <td><img  style = 'width: 20px;' src={{ asset('images/button-green.png') }} > Demande Résolue</td>
                 {% endif %}
                 <td>{{  demande.date|date('Y-m-d') }}</td>
                 <td> <a href="{{ path('demande_view', {'page': demande.id}) }}"> Voir la Resolution

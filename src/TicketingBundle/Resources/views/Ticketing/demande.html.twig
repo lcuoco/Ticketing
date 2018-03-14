@@ -53,14 +53,16 @@
                     <th> Date</th>
 
                 </tr>
+                </thead>
                 {% if listTDemandes %}
                 {% for demande in listTDemandes %}
+                    <tbody>
                    <tr>
                 <td>{{ demande.objet }}</td>
                     <td>{{ demande.description }}</td>
-                    <td>{{ demande.etat }}</td>
+                       <td><img  style = 'width: 20px;' src={{ asset('images/button-red.png') }} > Demande Soumise</td>
                     <td>{{ demande.utilisateur.username }}</td>
-                    <td>Pas encore attribué</td>
+                    <td> pas encore attribuée</td>
                     <td>{{  demande.date|date('Y-m-d') }}</td>
                     <td> <a href="{{ path('demande_view', {'page': demande.id}) }}"> Voir la Demande
                         </a></td>
@@ -69,18 +71,24 @@
                 {% endif %}
 
                 {% for ticket in listTickets %}
-                </thead>
                 <tbody>
                 <a>
+                    <tr>
                     <td>{{ ticket.demande.objet }}</td>
                     <td>{{ ticket.demande.description }}</td>
-                    <td>{{ ticket.demande.etat }}</td>
+                        {% if ticket.demande.etat == 'attribue'  %}
+                            <td><img  style = 'width: 20px;' src={{ asset('images/button-orange.png') }} > Demande Attribué</td>
+                        {% endif %}
+                        {% if ticket.demande.etat == 'resolue'  %}
+                            <td><img  style = 'width: 20px;' src={{ asset('images/button-green.png') }} > Demande Résolue</td>
+                        {% endif %}
                     <td>{{ ticket.demande.utilisateur.username }}</td>
                     <td>{{ ticket.utilisateur.username }}</td>
                     <td>{{  ticket.demande.date|date('Y-m-d') }}</td>
                     <td> <a href="{{ path('demande_view', {'page': ticket.demande.id}) }}"> Voir la Demande
 
                         </a></td>
+                    </tr>
 
                     {% endfor %}
                 </tbody>

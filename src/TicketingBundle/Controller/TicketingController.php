@@ -630,11 +630,11 @@ class TicketingController extends Controller
                 $em->flush();
 
 
-                $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+                $request->getSession()->getFlashBag()->add('notice', 'Technicien bien crée.');
 
 
                 // On redirige vers la page de visualisation de l'annonce nouvellement créée
-                return $this->redirectToRoute('ticketing_homepage');
+
             }
 
 
@@ -642,7 +642,7 @@ class TicketingController extends Controller
         }
         return $this->render('TicketingBundle:Ticketing:inscriptiontech.html.twig', array(
 
-            'form' => $form->createView()
+            'form' => $form->createView(), 'utilisateur' => $utilisateur
 
         ));
 

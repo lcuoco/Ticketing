@@ -57,7 +57,7 @@
                 <a>
                     <td>{{ demande.objet }}</td>
                     <td>{{ demande.description }}</td>
-                    <td>{{ demande.etat }}</td>
+                    <td><td><img  style = 'width: 20px;' src={{ asset('images/button-red.png') }} > Demande Soumise</td></td>
                     <td> <a href="{{ path('ticketing_attribute', {'page': demande.id}) }}"> Attribuer la demande
 
                         </a></td>

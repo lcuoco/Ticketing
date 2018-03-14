@@ -60,7 +60,12 @@
                 <a>
                     <td>{{ ticket.demande.objet }}</td>
                     <td>{{ ticket.demande.description }}</td>
-                    <td>{{ ticket.demande.etat }}</td>
+                    {% if ticket.demande.etat == 'resolue'  %}
+                        <td><img  style = 'width: 20px;' src={{ asset('images/button-green.png') }} > Demande Résolue</td>
+                    {% endif%}
+                        {% if ticket.demande.etat == 'attribue'  %}
+                    <td><img  style = 'width: 20px;' src={{ asset('images/button-orange.png') }} > Demande Attribué</td>
+                        {% endif %}
                     <td>{{ ticket.demande.utilisateur.username }} </td>
                     <td>{{  ticket.demande.date|date('Y-m-d') }}</td>
                     <td> <a href="{{ path('ticketing_resolve', {'page': ticket.id}) }}"> Résoudre</a>
@@ -95,7 +100,12 @@
                          <a>
                              <td>{{ ticket.demande.objet }}</td>
                              <td>{{ ticket.demande.description }}</td>
-                             <td>{{ ticket.demande.etat }}</td>
+                             {% if ticket.demande.etat == 'resolue'  %}
+                                 <td><img  style = 'width: 20px;' src={{ asset('images/button-green.png') }} > Demande Résolue</td>
+                             {% endif%}
+                             {% if ticket.demande.etat == 'attribue'  %}
+                                 <td><img  style = 'width: 20px;' src={{ asset('images/button-orange.png') }} > Demande Attribué</td>
+                             {% endif %}
                              <td>{{ ticket.demande.utilisateur.username }} </td>
                              <td>{{  ticket.demande.date|date('Y-m-d') }}</td>
                              <td> <a href="{{ path('ticketing_resolve', {'page': ticket.id}) }}"> Voir la résolution

@@ -31,7 +31,23 @@
         </div>
     </div>
     <!---fin -->
-    {{ form(form) }}
+    {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('notice') %}
+                <h4>{{ msg }}</h4>
+            {% endfor %}
+        </div>
+        <div class = 'well'>
+
+            <strong>Les Identifiants confidentiels du technicien sont : <br><br></strong>
+            Nom d'Utilisateur : <strong>{{ utilisateur.username }}</strong> <br><br>
+            Mot de Passe : <strong>{{ utilisateur.password }}</strong> <br><br>
+            Notez les biens ils permettront au technicien de se connecter sur le portail.
+        </div>
+        <a href="{{ path('ticketing_admin') }}"><button type="button" class="btn btn-danger" ><span class="glyphicon glyphicon-home"></span> Retour Acceuil</button></a>
+    {% else %}
+        {{ form(form) }}
+    {% endif %}
 
     </div>
 
