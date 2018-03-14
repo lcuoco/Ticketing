@@ -1,5 +1,22 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
 {% block login %}}<li><a href="{{ path('ticketing_homepage') }}"><span class="glyphicon glyphicon-home"></span> Acceuil</a></li><li><a href="{{ path('login') }}"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li><li class = "active"><a href="{{ path('ticketing_inscription') }}"> <span class="glyphicon glyphicon-pencil"></span> Inscription</a></li>{% endblock %}
 {% block body %}
+    {% if app.session.flashBag.has('notice') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('notice') %}
+                <h4>{{ msg }}</h4>
+            {% endfor %}
+        </div>
+        <div class = 'well'>
+
+            <strong>Vos Identifiants confidentiels sont : <br><br></strong>
+                Nom d'Utilisateur : <strong>{{ utilisateur.username }}</strong> <br><br>
+                Mot de Passe : <strong>{{ utilisateur.password }}</strong> <br><br>
+                Notez les biens ils vous permettront de vous connecter sur le portail.
+        </div>
+        <a href="{{ path('login') }}"><button type="button" class="btn btn-danger" ><span class="glyphicon glyphicon-home"></span> Retour Acceuil</button></a>
+    {% else %}
 {{ form(form) }}
+    {% endif %}
+
 {% endblock %}

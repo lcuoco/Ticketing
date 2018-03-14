@@ -1,17 +1,43 @@
 {% extends "TicketingBundle:Ticketing:layout.html.twig" %}
 {% block logout %}
-<ul class="nav navbar-nav navbar-right"><li  class = "active"><a href="{{ path('ticketing_admin') }}"><span class="glyphicon glyphicon-bullhorn"></span> Interface Administrateur</a></li>
-<ul class="nav navbar-nav navbar-right"><li><a href="{{ path('demandes_view') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Toutes les demandes</a></li>
-    <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li>
+<li  class = "active"><a href="{{ path('ticketing_admin') }}"><span class="glyphicon glyphicon-bullhorn"></span> Interface Administrateur</a></li>
+<li><a href="{{ path('demandes_view') }}"><span class="glyphicon glyphicon-menu-hamburger"></span> Toutes les demandes</a></li>
+    <li><a href="{{ path('ticketing_tech') }}"><span class="glyphicon glyphicon-wrench"></span> Interface Technicien</a></li>
 
 
 
-        <ul class="nav navbar-nav navbar-right"><li><a href="{{ path('ticketing_inscription_tech') }}"><span class="glyphicon glyphicon-plus"></span> Inscrire un nouveau technicien</a></li>
+        <li><a href="{{ path('ticketing_inscription_tech') }}"><span class="glyphicon glyphicon-plus"></span> Inscrire un nouveau technicien</a></li>
 
-            <li><a href="{{ path('ticketing_profiles') }}"><span class="glyphicon glyphicon-user"></span> Gérer les Utilisateurs</a></li><ul class="nav navbar-nav navbar-right"><li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li></ul>{% endblock %}
+            <li><a href="{{ path('ticketing_profiles') }}"><span class="glyphicon glyphicon-user"></span> Gérer les Utilisateurs</a></li></ul><ul class="nav navbar-nav navbar-right"><button class="btn btn-success navbar-btn" style = "margin-right: 10px;" data-toggle="modal" data-target="#myModal">   Connecté sur le portail</button></ul>
+    </ul>{% endblock %}
 
 
 {% block body %}
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Votre Profil :</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Nom : {{ app.user.nom }}</p>
+                    <p>Prénom : {{ app.user.prenom }}</p>
+                    <p>Nom d'Utilisateur : {{ app.user.username }}</p>
+                    <p>Email : {{ app.user.email }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer la boite de Dialogue</button>
+                    <a href="{{ path('logout') }}"><button type="button" class="btn btn-danger" ><span class="glyphicon glyphicon-log-in"></span> Deconnexion</button></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!---fin -->
     <h2> Bonjour {{ app.user.username }}</h2>
     <ul>
         <h3>Demandes à attribuer</h3>
