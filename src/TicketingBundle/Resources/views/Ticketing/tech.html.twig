@@ -48,11 +48,11 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Objet</th>
-                    <th>Description</th>
-                    <th>Etat</th>
-                    <th>Fait par</th>
-                    <th>Date</th>
+                    <th class = 'col-lg-3'>Objet</th>
+                    <th class = 'col-lg-3'>Description</th>
+                    <th class = 'col-lg-3'>Etat</th>
+                    <th class = 'col-lg-3'>Fait par</th>
+                    <th class = 'col-lg-3'>Date</th>
                 </tr>
                 {% for ticket in listTickets %}
                 </thead>
@@ -84,15 +84,15 @@
                  <h3>Demandes Résolues</h3>
 
                  <div class="container">
-
+                    <div class = "well">
                      <table class="table table-striped">
                          <thead>
                          <tr>
-                             <th>Objet</th>
-                             <th>Description</th>
-                             <th>Etat</th>
-                             <th>Fait par</th>
-                             <th>Date</th>
+                             <th class = 'col-lg-3'>Objet</th>
+                             <th class = 'col-lg-3'>Description</th>
+                             <th class = 'col-lg-3'>Etat</th>
+                             <th class = 'col-lg-3'>Fait par</th>
+                             <th class = 'col-lg-3'>Date</th>
                          </tr>
                          {% for ticket in listTicketsres %}
                          </thead>

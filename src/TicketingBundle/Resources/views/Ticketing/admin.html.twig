@@ -43,7 +43,7 @@
         <h3>Demandes à attribuer</h3>
 
         <div class="container">
-
+            <div class = "well">
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -57,7 +57,7 @@
                 <a>
                     <td>{{ demande.objet }}</td>
                     <td>{{ demande.description }}</td>
-                    <td><td><img  style = 'width: 20px;' src={{ asset('images/button-red.png') }} > Demande Soumise</td></td>
+                    <td><img  style = 'width: 20px;' src={{ asset('images/button-red.png') }} > Demande Soumise</td>
                     <td> <a href="{{ path('ticketing_attribute', {'page': demande.id}) }}"> Attribuer la demande
 
                         </a></td>
@@ -67,10 +67,11 @@
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
 
 
 
     </ul>
     <a href="{{ path('demandes_view')}}"> Voir Toutes les demandes</a>
+    </div>
+    </div>
 {% endblock %}

@@ -127,7 +127,7 @@ class TicketingController extends Controller
 
     public function addAction(Request $request)
     {
-        // On crée un objet Advert
+
 
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
 
@@ -158,14 +158,6 @@ class TicketingController extends Controller
         'required'  => false, 'empty_data' => 'ok'))
             ->add('Envoyer', SubmitType::class, array('label' => 'Créer la demande'));
 
-        // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
-        // On récupère le service
-
-
-// Si l'utilisateur courant est anonyme, $user vaut « anon. »
-
-
-// Sinon, c'est une instance de notre entité User, on peut l'utiliser normalement
 
         $demande->setUtilisateur($this->getUser());
 
@@ -177,9 +169,6 @@ class TicketingController extends Controller
 
         if ($request->isMethod('POST')) {
 
-            // On fait le lien Requête <-> Formulaire
-
-            // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
 
             $form->handleRequest($request);
 
@@ -187,7 +176,7 @@ class TicketingController extends Controller
             // On vérifie que les valeurs entrées sont correctes
 
             $demande1 = $demande;
-            // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+
 
             if ($form->isValid()) {
 
@@ -202,7 +191,7 @@ class TicketingController extends Controller
                     $demande->setPiecejointe('Pieces/' . $someNewFilename);
                 }
 
-                // On enregistre notre objet $advert dans la base de données, par exemple
+
 
                 $em = $this->getDoctrine()->getManager();
 
@@ -215,7 +204,7 @@ class TicketingController extends Controller
                 $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
 
 
-                // On redirige vers la page de visualisation de l'annonce nouvellement créée
+
                 return $this->redirectToRoute('ticketing_user');
 
 
@@ -224,9 +213,7 @@ class TicketingController extends Controller
         }
 
 
-        // On passe la méthode createView() du formulaire à la vue
 
-        // afin qu'elle puisse afficher le formulaire toute seule
 
         return $this->render('TicketingBundle:Ticketing:add.html.twig', array(
 
@@ -239,7 +226,7 @@ class TicketingController extends Controller
 
     {
 
-        // Ici, on récupérera l'annonce correspondante à l'id $id
+
 
 
         $repository = $this
@@ -316,16 +303,9 @@ class TicketingController extends Controller
             ->add('Envoyer', SubmitType::class, array('label' => 'Attribuer'));
 
         $formticket = $formBuilder->getForm();
-        // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
-        // On récupère le service
 
 
-// Si l'utilisateur courant est anonyme, $user vaut « anon. »
 
-
-// Sinon, c'est une instance de notre entité User, on peut l'utiliser normalement
-
-        // À partir du formBuilder, on génère le formulaire
         $repository = $this
             ->getDoctrine()
             ->getManager()
@@ -345,20 +325,15 @@ class TicketingController extends Controller
 
         if ($request->isMethod('POST')) {
 
-            // On fait le lien Requête <-> Formulaire
-
-            // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
 
             $formticket->handleRequest($request);
 
 
-            // On vérifie que les valeurs entrées sont correctes
 
-            // (Nous verrons la validation des objets en détail dans le prochain chapitre)
 
             if ($formticket->isValid()) {
 
-                // On enregistre notre objet $advert dans la base de données, par exemple
+
 
                 $em = $this->getDoctrine()->getManager();
 
@@ -386,7 +361,7 @@ class TicketingController extends Controller
 
     {
 
-        // Ici, on récupérera l'annonce correspondante à l'id $id
+
 
         $repository = $this
             ->getDoctrine()
@@ -412,20 +387,20 @@ class TicketingController extends Controller
 
             if ($request->isMethod('POST')) {
 
-                // On fait le lien Requête <-> Formulaire
 
-                // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
+
+
 
                 $formticketcpt->handleRequest($request);
 
 
                 // On vérifie que les valeurs entrées sont correctes
 
-                // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+
 
                 if ($formticketcpt->isValid()) {
 
-                    // On enregistre notre objet $advert dans la base de données, par exemple
+
                     $numdem = $ticket->getDemande();
                     $numdem->setEtat('resolue');
 
@@ -482,14 +457,7 @@ class TicketingController extends Controller
             ->add('email', TextType::class, array('label' => 'Email :'))
             ->add('envoyer', SubmitType::class, array('label' => 'Créer mon compte'));
 
-        // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
-        // On récupère le service
 
-
-// Si l'utilisateur courant est anonyme, $user vaut « anon. »
-
-
-// Sinon, c'est une instance de notre entité User, on peut l'utiliser normalement
 
         $utilisateur->setRoles(array('ROLE_USER'));
 
@@ -507,17 +475,11 @@ class TicketingController extends Controller
 
         if ($request->isMethod('POST')) {
 
-            // On fait le lien Requête <-> Formulaire
-
-            // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
 
             $form->handleRequest($request);
 
 
-            // On vérifie que les valeurs entrées sont correctes
 
-
-            // (Nous verrons la validation des objets en détail dans le prochain chapitre)
 
             if ($form->isValid()) {
 
@@ -544,7 +506,7 @@ class TicketingController extends Controller
                 $request->getSession()->getFlashBag()->add('notice', 'Votre compte à bien été crée.');
 
 
-                // On redirige vers la page de visualisation de l'annonce nouvellement créée
+
 
             }
 
@@ -559,7 +521,7 @@ class TicketingController extends Controller
     }
     public function inscriptiontechAction(Request $request)
     {
-        // On crée un objet Advert
+
 
         $utilisateur = new Utilisateurs();
 
@@ -585,14 +547,8 @@ class TicketingController extends Controller
             ->add('email', TextType::class, array('label' => 'Email :'))
             ->add('envoyer', SubmitType::class, array('label' => 'Créer mon compte'));
 
-        // Pour l'instant, pas de candidatures, catégories, etc., on les gérera plus tard
-        // On récupère le service
 
 
-// Si l'utilisateur courant est anonyme, $user vaut « anon. »
-
-
-// Sinon, c'est une instance de notre entité User, on peut l'utiliser normalement
 
         $utilisateur->setRoles(array('ROLE_TECH'));
 
@@ -610,22 +566,14 @@ class TicketingController extends Controller
 
         if ($request->isMethod('POST')) {
 
-            // On fait le lien Requête <-> Formulaire
-
-            // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
 
             $form->handleRequest($request);
 
 
-            // On vérifie que les valeurs entrées sont correctes
-
-
-            // (Nous verrons la validation des objets en détail dans le prochain chapitre)
 
             if ($form->isValid()) {
 
 
-                // On enregistre notre objet $advert dans la base de données, par exemple
 
                 $em = $this->getDoctrine()->getManager();
 
@@ -648,8 +596,7 @@ class TicketingController extends Controller
 
 
 
-                // On redirige vers la page de visualisation de l'annonce nouvellement créée
-
+              
             }
 
 
