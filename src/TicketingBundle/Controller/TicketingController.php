@@ -529,7 +529,14 @@ class TicketingController extends Controller
                 $em->persist($utilisateur);
 
                 ;
-                $utilisateur->setUsername( $form['nom']->getData() . $form['prenom']->getData());
+
+                $utilisateur->setUsername( $form['nom']->getData() . $form['prenom']->getData() . $utilisateur->getId());
+
+                $em->flush();
+
+                $utilisateur->setUsername( $form['nom']->getData() . $form['prenom']->getData() . $utilisateur->getId());
+
+                $em->persist($utilisateur);
 
                 $em->flush();
 
