@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d96c3c3-b9d9-42e0-9e0a-bb644880e864" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php" afterPath="$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php" />
-      <change beforePath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/layout.html.twig" afterPath="$PROJECT_DIR$/src/TicketingBundle/Resources/views/Ticketing/layout.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/TicketingUserBundle/Resources/views/Security/login.html.twig" afterPath="$PROJECT_DIR$/src/TicketingUserBundle/Resources/views/Security/login.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/images/button-orange.png" afterPath="$PROJECT_DIR$/web/images/button-orange.png" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +22,8 @@
       <file leaf-file-name="TicketingController.php" pinned="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="540" column="29" lean-forward="false" selection-start-line="540" selection-start-column="29" selection-end-line="540" selection-end-column="29" />
+            <state relative-caret-position="376">
+              <caret line="635" column="0" lean-forward="true" selection-start-line="635" selection-start-column="0" selection-end-line="635" selection-end-column="0" />
               <folding>
                 <element signature="e#46#103#0#PHP" expanded="true" />
               </folding>
@@ -479,12 +475,12 @@
       <workItem from="1520944185408" duration="512000" />
       <workItem from="1520945047296" duration="3557000" />
       <workItem from="1520956830228" duration="651000" />
-      <workItem from="1521028964627" duration="14123000" />
+      <workItem from="1521028964627" duration="14415000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97394000" />
+    <option name="totallyTimeSpent" value="97686000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="839" extended-state="6" />
@@ -924,8 +920,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TicketingBundle/Controller/TicketingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="540" column="29" lean-forward="false" selection-start-line="540" selection-start-column="29" selection-end-line="540" selection-end-column="29" />
+        <state relative-caret-position="376">
+          <caret line="635" column="0" lean-forward="true" selection-start-line="635" selection-start-column="0" selection-end-line="635" selection-end-column="0" />
           <folding>
             <element signature="e#46#103#0#PHP" expanded="true" />
           </folding>

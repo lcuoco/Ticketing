@@ -636,8 +636,16 @@ class TicketingController extends Controller
 
                 $em->flush();
 
+                $em->persist($utilisateur);
+
+                $utilisateur->setUsername( $form['nom']->getData() . $form['prenom']->getData() . $utilisateur->getId());
+
+                $em->flush();
+
 
                 $request->getSession()->getFlashBag()->add('notice', 'Technicien bien crée.');
+
+
 
 
                 // On redirige vers la page de visualisation de l'annonce nouvellement créée
