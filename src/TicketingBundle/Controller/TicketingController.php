@@ -451,8 +451,8 @@ class TicketingController extends Controller
                 'invalid_message' => 'The password fields must match.',
                 'options' => array('attr' => array('class' => 'password-field')),
                 'required' => true,
-                'first_options'  => array('label' => 'Password'),
-                'second_options' => array('label' => 'Répéter Password'),
+                'first_options'  => array('label' => 'Mot de passe'),
+                'second_options' => array('label' => 'Répéter Mot de passe'),
             ))
             ->add('email', TextType::class, array('label' => 'Email :'))
             ->add('envoyer', SubmitType::class, array('label' => 'Créer mon compte'));

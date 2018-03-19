@@ -61,7 +61,7 @@
                 <td>{{ demande.objet }}</td>
                     <td>{{ demande.description }}</td>
                        <td><img  style = 'width: 20px;' src={{ asset('images/button-red.png') }} > Demande Soumise</td>
-                    <td>{{ demande.utilisateur.username }}</td>
+                    <td>{{ demande.utilisateur.nom }} {{ demande.utilisateur.prenom }}</td>
                     <td> pas encore attribuée</td>
                     <td>{{  demande.date|date('Y-m-d') }}</td>
                     <td> <a href="{{ path('demande_view', {'page': demande.id}) }}"> Voir la Demande
@@ -82,8 +82,12 @@
                         {% if ticket.demande.etat == 'resolue'  %}
                             <td><img  style = 'width: 20px;' src={{ asset('images/button-green.png') }} > Demande Résolue</td>
                         {% endif %}
-                    <td>{{ ticket.demande.utilisateur.username }}</td>
-                    <td>{{ ticket.utilisateur.username }}</td>
+                    <td>{{ ticket.demande.utilisateur.nom  }} {{ ticket.demande.utilisateur.prenom }}</td>
+                      {% if ticket.utilisateur.username =='Administrateur'  %}
+                      <td>{{ ticket.utilisateur.username }}</td>
+                      {% else %}
+                    <td>{{ ticket.utilisateur.nom}} {{ ticket.utilisateur.prenom}}</td>
+                      {% endif %}
                     <td>{{  ticket.demande.date|date('Y-m-d') }}</td>
                     <td> <a href="{{ path('demande_view', {'page': ticket.demande.id}) }}"> Voir la Demande
 

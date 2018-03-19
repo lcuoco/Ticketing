@@ -50,7 +50,7 @@
 
                             <li class = 'textein'><strong>Objet : </strong>  {{ ticket.demande.objet }}</li>
                             <li class = 'textein'><strong>Description : </strong> {{ ticket.demande.description }}</li>
-                            <li class = 'textein'><strong>Fait par : </strong>{{ ticket.demande.utilisateur.username }}</li>
+                            <li class = 'textein'><strong>Fait par : </strong>{{ ticket.demande.utilisateur.nom }} {{ ticket.demande.utilisateur.prenom }}</li>
                             <li class = 'textein'><strong>Date : </strong>{{  ticket.demande.date|date('Y-m-d') }}</li>
                             {% if ticket.urgence == 1 %} <li class = 'textein'><strong>Urgence : </strong>  Demande Urgente</li>  {% endif %}
                             <li class = 'textein'>{{ form(formticketcpt) }} </li>

@@ -41,7 +41,7 @@
     <!---fin -->
     <h2> Bonjour {{ app.user.username }}</h2>
     <ul>
-        <h3>Demandes à résoudres</h3>
+        <h3>Demandes à résoudre</h3>
 
         <div class="container">
             <div class = "well coloredwell">
@@ -61,12 +61,12 @@
                     <td>{{ ticket.demande.objet }}</td>
                     <td>{{ ticket.demande.description }}</td>
                     {% if ticket.demande.etat == 'resolue'  %}
-                        <td><img  style = 'width: 20px;' src={{ asset('images/button-green.png') }} > Demande Résolue</td>
+                        <td><img  style = 'width: 20px;' src={{ asset('images/button-green.png') }} > Demande résolue</td>
                     {% endif%}
                         {% if ticket.demande.etat == 'attribue'  %}
-                    <td><img  style = 'width: 20px;' src={{ asset('images/button-orange.png') }} > Demande Attribué</td>
+                    <td><img  style = 'width: 20px;' src={{ asset('images/button-orange.png') }} > Demande attribuée</td>
                         {% endif %}
-                    <td>{{ ticket.demande.utilisateur.username }} </td>
+                    <td>{{ ticket.demande.utilisateur.nom }}  {{ ticket.demande.utilisateur.prenom }} </td>
                     <td>{{  ticket.demande.date|date('Y-m-d') }}</td>
                     <td> <a href="{{ path('ticketing_resolve', {'page': ticket.id}) }}"> Résoudre</a>
 
@@ -101,12 +101,12 @@
                              <td>{{ ticket.demande.objet }}</td>
                              <td>{{ ticket.demande.description }}</td>
                              {% if ticket.demande.etat == 'resolue'  %}
-                                 <td><img  style = 'width: 20px;' src={{ asset('images/button-green.png') }} > Demande Résolue</td>
+                                 <td><img  style = 'width: 20px;' src={{ asset('images/button-green.png') }} > Demande résolue</td>
                              {% endif%}
                              {% if ticket.demande.etat == 'attribue'  %}
-                                 <td><img  style = 'width: 20px;' src={{ asset('images/button-orange.png') }} > Demande Attribué</td>
+                                 <td><img  style = 'width: 20px;' src={{ asset('images/button-orange.png') }} > Demande attribuée</td>
                              {% endif %}
-                             <td>{{ ticket.demande.utilisateur.username }} </td>
+                             <td>{{ ticket.demande.utilisateur.nom }} {{ ticket.demande.utilisateur.prenom }} </td>
                              <td>{{  ticket.demande.date|date('Y-m-d') }}</td>
                              <td> <a href="{{ path('ticketing_resolve', {'page': ticket.id}) }}"> Voir la résolution
 
