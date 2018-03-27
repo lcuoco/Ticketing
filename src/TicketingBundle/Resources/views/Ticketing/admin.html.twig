@@ -41,9 +41,10 @@
     <h2> Bonjour {{ app.user.username }}</h2>
     <ul>
         <h3>Demandes à attribuer</h3>
-
+    </ul>
         <div class="container">
             <div class = "well">
+                <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -72,6 +73,7 @@
 
     </ul>
     <a href="{{ path('demandes_view')}}"> Voir Toutes les demandes</a>
+    </div>
     </div>
     </div>
 {% endblock %}

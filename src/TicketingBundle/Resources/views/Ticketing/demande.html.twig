@@ -39,9 +39,12 @@
     <!---fin -->
     <ul>
         <h3>Toutes Les Demandes </h3>
+    </ul>
 
         <div class="container">
+
         <div class = "well">
+            <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -56,7 +59,7 @@
                 </thead>
                 {% if listTDemandes %}
                 {% for demande in listTDemandes %}
-                    <tbody>
+
                    <tr>
                 <td>{{ demande.objet }}</td>
                     <td>{{ demande.description }}</td>
@@ -71,7 +74,7 @@
                 {% endif %}
 
                 {% for ticket in listTickets %}
-                <tbody>
+
                 <a>
                     <tr>
                     <td>{{ ticket.demande.objet }}</td>
@@ -95,11 +98,9 @@
                     </tr>
 
                     {% endfor %}
-                </tbody>
+
             </table>
         </div>
-
-
-
-    </ul>
+        </div>
+    </div>
 {% endblock %}
